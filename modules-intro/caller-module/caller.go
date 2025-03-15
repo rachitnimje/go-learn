@@ -19,7 +19,7 @@ func main() {
 	log.SetFlags(0)
 
 	// var message string
-	message, err := greetings.Hello("") 
+	message, err := greetings.Hello("Rachit") 
 	if err != nil {
 		log.Fatal(err)
 	}

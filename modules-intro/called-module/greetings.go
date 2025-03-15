@@ -3,6 +3,7 @@ package greetings
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 )
 
 // Hello exported name: a function whose name starts with a capital letter can be called by a function outside its package
@@ -13,7 +14,7 @@ func Hello(name string) (string, error) {
 
 	// := operator is a shortcut for declaring and initializing variable in the same line
 	// the value on the right side of the operator is used to decide the type of the variable
-	message := fmt.Sprintf("Hi, %v. Welcome!", name)
+	message := fmt.Sprintf(randomGreeting(), name)
 	/*
 		The long way:
 			var message string
@@ -21,4 +22,16 @@ func Hello(name string) (string, error) {
 	*/
 
 	return message, nil
+}
+
+func randomGreeting() string {
+	// we have initialized a slice, which is an dynamic array (array list of Go)
+	greetings := []string{
+		"Hi, %v. Welcome!",
+		"Great to have you, %v!",
+		"Have a lovely day, %v!",
+	}
+
+	// from the math/rand package we use the Intn function and pass the length of slice greetings to limit the range of rand
+	return greetings[rand.Intn(len(greetings))]
 }
