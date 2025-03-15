@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"halogen/called-module"
 )
 
@@ -12,7 +13,16 @@ import (
 // it will look like "go mod edit -replace halogen/greetings=../greetings"
 // then we need to run "go mod tidy" so that it can include the external module 
 func main() {
+	// setting the properties of the predefined logger with prefix
+	// setting the flag to 0 disables printing time, source file and line number, diff flags mean diff types of logging
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
 	// var message string
-	message := greetings.Hello("Rachit") 
+	message, err := greetings.Hello("") 
+	if err != nil {
+		log.Fatal(err)
+	}
+	
 	fmt.Println(message)
 }
