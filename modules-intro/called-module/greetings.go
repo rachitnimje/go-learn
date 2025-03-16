@@ -14,8 +14,8 @@ func Hello(name string) (string, error) {
 
 	// := operator is a shortcut for declaring and initializing variable in the same line
 	// the value on the right side of the operator is used to decide the type of the variable
-	// message := fmt.Sprintf(randomGreeting(), name)
-	message := fmt.Sprint(randomGreeting())
+	message := fmt.Sprintf(randomGreeting(), name)
+	// message := fmt.Sprint(randomGreeting())
 
 	/*
 		The long way:

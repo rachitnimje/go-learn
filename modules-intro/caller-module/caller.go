@@ -20,7 +20,7 @@ func main() {
 	
 	// message, err := greetings.Hello("Rachit") 
 	
-	names := []string{"Rachit", "", "Tonya"}
+	names := []string{"Rachit", "Chicken", "Tonya"}
 	messages, err := greetings.Hellos(names)
 
 	if err != nil {
