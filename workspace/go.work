@@ -1,0 +1,9 @@
+// "go work init ./hello" creates a go.work file for a workspace containing the modules in the ./hello folder
+
+go 1.24.1
+
+// the use directive tells that the module in the hello directory should be the main modules when doing a build
+use (
+	./example/hello
+	./hello
+)
