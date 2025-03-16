@@ -17,12 +17,15 @@ func main() {
 	// setting the flag to 0 disables printing time, source file and line number, diff flags mean diff types of logging
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
+	
+	// message, err := greetings.Hello("Rachit") 
+	
+	names := []string{"Rachit", "", "Tonya"}
+	messages, err := greetings.Hellos(names)
 
-	// var message string
-	message, err := greetings.Hello("Rachit") 
 	if err != nil {
 		log.Fatal(err)
 	}
 	
-	fmt.Println(message)
+	fmt.Println(messages)
 }

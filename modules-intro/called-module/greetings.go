@@ -14,7 +14,9 @@ func Hello(name string) (string, error) {
 
 	// := operator is a shortcut for declaring and initializing variable in the same line
 	// the value on the right side of the operator is used to decide the type of the variable
-	message := fmt.Sprintf(randomGreeting(), name)
+	// message := fmt.Sprintf(randomGreeting(), name)
+	message := fmt.Sprint(randomGreeting())
+
 	/*
 		The long way:
 			var message string
@@ -24,8 +26,24 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+// Hellos returns a map that associates names with greetings
+func Hellos(names []string) (map[string]string, error) {
+	messages := make(map[string]string)
+
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+
+		messages[name] = message
+	}
+
+	return messages, nil
+}
+
 func randomGreeting() string {
-	// we have initialized a slice, which is an dynamic array (array list of Go)
+	// we have initialized a slice, which is a dynamic array (array list of Go)
 	greetings := []string{
 		"Hi, %v. Welcome!",
 		"Great to have you, %v!",
